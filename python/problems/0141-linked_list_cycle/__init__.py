@@ -7,13 +7,12 @@ class ListNode:
 class Solution:
     def hasCycle(self, head: ListNode) -> bool:
         current = head
-        lookup = set()
 
         while current:
-            if current in lookup:
+            if hasattr(current, 'found'):
                 return True
             else:
-                lookup.add(current)
+                current.found = True
                 current = current.next
 
         return False
